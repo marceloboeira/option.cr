@@ -1,5 +1,5 @@
 # option.cr
-> An attempt to implement Option monads for Crystal
+> Crystal implementation of Scala's Option Monad
 
 ## Installation
 
