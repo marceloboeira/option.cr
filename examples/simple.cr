@@ -1,11 +1,15 @@
 require "../src/option"
 
-class Unsafe
-  def io
-    ["Data", nil].sample
+module UnsafeIO
+  class User
+    def count : Int32?
+      # IO operation can fail
+      [10, nil].sample
+    end
   end
 end
 
 10.times do
-  puts option(Unsafe.new.io).or_else("Empty...")
+  users = option(UnsafeIO::User.new.count).or_else(0)
+  puts "#{users} on storage"
 end
