@@ -34,6 +34,18 @@ dependencies:
 
 ## Usage
 
+```
+option("value") #<Some(String):0x10de55bc0 @value="value">
+option(123) #<Some(Int32):0x10de5ef10 @value=123>
+option(nil) #<None:0x10de5ef00>
+
+option("123").or_else("0") # "123"
+option(nil).or_else("0") # "0"
+```
+
+
+### Examples
+
 ```crystal
 require "option"
 
