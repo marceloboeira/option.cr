@@ -16,14 +16,14 @@ dependencies:
 
 ### Functions
 
-* `none` - Creates an instance of the None class
+* `none` - Creates an instance of the None(Nil) class
 * `some(value)` - Creates an instance of the Some(T) class with the value type. e.g.: some("foo") -> Some(String)
 * `option(value)` - Returns either a None or a Some(T) instance
 
 ### Classes
 
-* `Option` - Abstract class that defines the contract followed by None/Some(T)
-* `None` - Class that defines the interaction with nil values
+* `Option(T)` - Abstract class that defines the contract followed by None(T)/Some(T)
+* `None(T)` - Class that defines the interaction with nil values
 * `Some(T)` - Class that defines the interaction with the value
 
 ### Interaction
@@ -37,7 +37,7 @@ dependencies:
 ```
 option("value") #<Some(String):0x10de55bc0 @value="value">
 option(123) #<Some(Int32):0x10de5ef10 @value=123>
-option(nil) #<None:0x10de5ef00>
+option(nil) #<None(Nil):0x10de5ef00>
 
 option("123").or_else("0") # "123"
 option(nil).or_else("0") # "0"

@@ -1,10 +1,10 @@
-abstract class Option
-  def get; end
-  def or_else(default); end
+class Option(T)
+  def get : T?; end
+  def or_else(default) : T; end
   def empty?; end
 end
 
-class None < Option
+class None(T) < Option(T)
   def get
     raise "None.get"
   end
@@ -18,14 +18,14 @@ class None < Option
   end
 end
 
-class Some(T) < Option
+class Some(T) < Option(T)
   def initialize(@value : T); end
 
   def get : T
     @value
   end
 
-  def or_else(default)
+  def or_else(default : T) : T
     @value
   end
 
@@ -34,15 +34,15 @@ class Some(T) < Option
   end
 end
 
-def some(value)
+def some(value) : Some
   Some(typeof(value)).new(value)
 end
 
-def none
-  None.new
+def none : None(Nil)
+  None(Nil).new
 end
 
-def option(value)
+def option(value) : Option
   return none if value == nil
 
   some(value)

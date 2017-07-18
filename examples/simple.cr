@@ -2,7 +2,7 @@ require "../src/option"
 
 module UnsafeIO
   class User
-    def count : Int32?
+    def self.count : Int32?
       # IO operation can fail
       [10, nil].sample
     end
@@ -10,6 +10,6 @@ module UnsafeIO
 end
 
 10.times do
-  users = option(UnsafeIO::User.new.count).or_else(0)
+  users = option(UnsafeIO::User.count).or_else(0)
   puts "#{users} on storage"
 end

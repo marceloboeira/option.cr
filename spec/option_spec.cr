@@ -3,7 +3,7 @@ require "./spec_helper"
 describe "option" do
   describe "when given with nil" do
     it "returns an instance of None" do
-      option(nil).class.should eq(None)
+      option(nil).class.should eq(None(Nil))
     end
   end
 
@@ -16,7 +16,7 @@ end
 
 describe "none" do
   it "returns an instance of None" do
-    none.class.should eq(None)
+    none.class.should eq(None(Nil))
   end
 
   describe "get" do
