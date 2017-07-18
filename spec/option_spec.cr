@@ -11,6 +11,10 @@ describe "option" do
     it "returns an instance of Some(Type)" do
       option("foo").class.should eq(Some(String))
     end
+
+    it "allows us to interact with the value" do
+      (option([1, nil].first).or_else(2) + 2).should eq(3)
+    end
   end
 end
 
