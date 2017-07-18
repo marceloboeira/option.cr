@@ -22,7 +22,7 @@ dependencies:
 
 ### Classes
 
-* `Option` - Abstract class that define the contract followed by None/Some(T)
+* `Option` - Abstract class that defines the contract followed by None/Some(T)
 * `None` - Class that defines the interaction with nil values
 * `Some(T)` - Class that defines the interaction with the value
 
