@@ -2,9 +2,15 @@ class Option(T)
   def get : T?; end
   def or_else(default) : T; end
   def empty?; end
+  
+  def self.from(value : T) : Option(T)
+    return None(T).new if value == nil
+
+    some(value.as(T))
+  end
 end
 
-class None(T) < Option(T)
+class None < Option(T)
   def get
     raise "None.get"
   end
@@ -42,8 +48,6 @@ def none : None(Nil)
   None(Nil).new
 end
 
-def option(value) : Option
-  return none if value == nil
-
-  some(value)
+def option(value)
+  Option.from(value)
 end

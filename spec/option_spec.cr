@@ -12,6 +12,12 @@ describe "option" do
       option("foo").class.should eq(Some(String))
     end
   end
+
+  describe "when given with a value" do
+    it "returns an instance of Some(Type)" do
+      option([1, nil].sample.or_else(1) + 1).to eq(2)
+    end
+  end
 end
 
 describe "none" do
